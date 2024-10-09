@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-double computeRoot(const double value, const int exponent, const double accuracy) {
+double calculateRoot(const double value, const int exponent, const double accuracy) {
     double y = value;
 
     if (exponent < 0) {
@@ -20,36 +20,37 @@ double computeRoot(const double value, const int exponent, const double accuracy
 }
 
 int main() {
-    double sqrtValue;
+    double root;
     int exponent;
     double accuracy;
 
-    printf("Enter the value of exponent: ");
-    scanf("%d", &exponent);
+    do {
+        printf("Enter the value of exponent: ");
+        scanf("%d", &exponent);
 
-    if (exponent == 0) {
-        printf("Exponent cannot be equal to 0\n");
-        return -1;
-    }
+        if(exponent == 0) {
+            printf("Exponent cannot be equal to 0\n");
+        }
+    } while(exponent == 0);
 
     if (exponent > 0) {
         printf("Enter the value of sqrtValue: ");
-        scanf("%lf", &sqrtValue);
+        scanf("%lf", &root);
 
-        if (sqrtValue < 0 && exponent % 2 == 0) {
+        if (root < 0 && exponent % 2 == 0) {
             printf("sqrtValue cannot be less than 0 for even exponents\n");
             return -1;
         }
     } else {
         printf("Enter the value of sqrtValue: ");
-        scanf("%lf", &sqrtValue);
+        scanf("%lf", &root);
 
-        if (exponent < 0 && sqrtValue <= 0 && exponent % 2 == 0) {
+        if (exponent < 0 && root <= 0 && exponent % 2 == 0) {
             printf("sqrtValue must be greater than 0 for even negative exponents\n");
             return -1;
         }
 
-        if (sqrtValue == 0) {
+        if (root == 0) {
             printf("sqrtValue cannot be 0 for negative exponents\n");
             return -1;
         }
@@ -58,9 +59,9 @@ int main() {
     printf("Enter the accuracy (e.g., 0.0001): ");
     scanf("%lf", &accuracy);
 
-    const double result = computeRoot(sqrtValue, exponent, accuracy);
+    const double result = calculateRoot(root, exponent, accuracy);
 
-    printf("The %d-th root of %.2f is approximately: %.7f\n", exponent, sqrtValue, result);
+    printf("The %d-th root of %.2f is approximately: %.7f\n", exponent, root, result);
 
     return 0;
 }
