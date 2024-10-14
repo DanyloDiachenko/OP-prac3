@@ -2,7 +2,6 @@
 #include <math.h>
 #include <stdbool.h>
 
-#define EPSILON 1e-15
 #define MAX_ROOT 1e+10
 #define MIN_ROOT -1e+10
 #define MAX_EXPONENT 1000
@@ -132,7 +131,7 @@ int main() {
 		const double logarithmValue = log10(accuracy);
 		const double roundedLogarithm = round(logarithmValue);
 
-		if (fabs(logarithmValue - roundedLogarithm) > EPSILON) {
+		if (fabs(logarithmValue - roundedLogarithm) > MIN_ACCURACY) {
 			printf("Accuracy should be a power of 10 (e.g., 1, 0.1, 0.01, etc.)\n");
 			accuracy = 0;
 		}
