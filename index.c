@@ -144,7 +144,7 @@ int main() {
 	if (!isnan(result)) {
 		printf("The %d-th root of %.lf is approximately: %.*lf\n", exponent, root, decimalPlaces, result);
 	} else {
-		printf("Failed to compute the root due to invalid input or computation error.\n");
+		printf("Failed to compute the root with this numbers.\n");
 	}
 
 	return 0;
