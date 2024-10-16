@@ -9,35 +9,8 @@
 #define MAX_ACCURACY 1e-1
 #define MIN_ACCURACY 1e-15
 
-int getDecimalPlaces(double accuracy) {
-	int decimalPlaces = 0;
-
-	while (accuracy < 1 && decimalPlaces < 15) {
-		accuracy *= 10;
-		decimalPlaces++;
-	}
-
-	return decimalPlaces;
-}
-
-double calculateRoot(const double root, const int exponent, const double accuracy) {
-	if (exponent < 0) {
-		const double positiveExponent = -exponent;
-		const double positiveRoot = calculateRoot(root, positiveExponent, accuracy);
-
-		return 1.0 / positiveRoot;
-	}
-
-	double result = root;
-	double delta;
-
-	do {
-		delta = (1.0 / (double) exponent) * (root / pow(result, (double) exponent - 1.0) - result);
-		result = result + delta;
-	} while (fabs(delta) >= accuracy);
-
-	return result;
-}
+int getDecimalPlaces(double accuracy);
+double calculateRoot(double root, int exponent, double accuracy);
 
 int main() {
 	double root, accuracy;
@@ -148,4 +121,34 @@ int main() {
 	}
 
 	return 0;
+}
+
+int getDecimalPlaces(double accuracy) {
+	int decimalPlaces = 0;
+
+	while (accuracy < 1 && decimalPlaces < 15) {
+		accuracy *= 10;
+		decimalPlaces++;
+	}
+
+	return decimalPlaces;
+}
+
+double calculateRoot(const double root, const int exponent, const double accuracy) {
+	if (exponent < 0) {
+		const double positiveExponent = -exponent;
+		const double positiveRoot = calculateRoot(root, positiveExponent, accuracy);
+
+		return 1.0 / positiveRoot;
+	}
+
+	double result = root;
+	double delta;
+
+	do {
+		delta = (1.0 / (double) exponent) * (root / pow(result, (double) exponent - 1.0) - result);
+		result = result + delta;
+	} while (fabs(delta) >= accuracy);
+
+	return result;
 }
