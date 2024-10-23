@@ -45,6 +45,7 @@ inline int getAndValidateExponent() {
 
 			continue;
 		}
+		fflush(stdin);
 
 		if (exponent > MAX_EXPONENT || exponent < MIN_EXPONENT) {
 			printf("Exponent value is too large or too small. Please enter a value between %d and %d.\n", MIN_EXPONENT, MAX_EXPONENT);
