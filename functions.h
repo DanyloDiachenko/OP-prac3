@@ -15,10 +15,10 @@ inline int getDecimalPlaces(double accuracy) {
 	return decimalPlaces;
 }
 
-inline double calculateRoot(const double root, const int exponent, const double accuracy) {
+inline double getRoot(const double root, const int exponent, const double accuracy) {
 	if (exponent < 0) {
 		const double positiveExponent = -exponent;
-		const double positiveRoot = calculateRoot(root, positiveExponent, accuracy);
+		const double positiveRoot = getRoot(root, positiveExponent, accuracy);
 
 		return 1.0 / positiveRoot;
 	}

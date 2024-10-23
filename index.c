@@ -1,7 +1,7 @@
 #include "./libraries.h";
 #include "./functions.h";
 
-double calculateRoot(double root, int exponent, double accuracy);
+double getRoot(double root, int exponent, double accuracy);
 int getDecimalPlaces(double accuracy);
 int getAndValidateExponent();
 double getAndValidateRoot(int exponent);
@@ -26,7 +26,7 @@ int main() {
 
 	const double accuracy = getAndValidateAccuracy();
 
-	const double result = calculateRoot(root, exponent, accuracy);
+	const double result = getRoot(root, exponent, accuracy);
 	const int decimalPlaces = getDecimalPlaces(accuracy);
 
 	if (!isnan(result)) {
