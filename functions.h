@@ -7,7 +7,7 @@
 inline int getDecimalPlaces(double accuracy) {
 	int decimalPlaces = 0;
 
-	while (accuracy < 1 && decimalPlaces < 15) {
+	while (accuracy < 1.0 && decimalPlaces < 15) {
 		accuracy *= 10;
 		decimalPlaces++;
 	}
