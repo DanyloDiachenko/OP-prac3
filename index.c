@@ -12,6 +12,7 @@ int main() {
 
 	if (exponent == 0) {
 		printf("Any number raised to the power of 0 is 1.\n");
+
 		return 0;
 	}
 
@@ -19,6 +20,7 @@ int main() {
 
 	if (root == 0) {
 		printf("The %d-th root of 0 is 0\n", exponent);
+
 		return 0;
 	}
 
