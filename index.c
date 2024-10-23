@@ -31,7 +31,7 @@ int main() {
 	const double result = getRoot(root, exponent, accuracy);
 	const int decimalPlaces = getDecimalPlaces(accuracy);
 
-	if (!isnan(result)) {
+	if (!isnan(result) && !isinf(result)) {
 		printf("The %d-th root of %.lf is approximately: %.*lf\n", exponent, root, decimalPlaces, result);
 	} else {
 		printf("Failed to compute the root with these numbers.\n");
