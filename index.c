@@ -8,6 +8,8 @@ double getAndValidateRoot(int exponent);
 double getAndValidateAccuracy();
 
 int main() {
+	printf("This application calculates the n-th root of a number with a given accuracy.\n");
+
 	const int exponent = getAndValidateExponent();
 
 	if (exponent == 0) {
